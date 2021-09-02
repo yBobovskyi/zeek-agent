@@ -1,0 +1,42 @@
+
+#ifndef CAF_CORE_EXPORT_H
+#define CAF_CORE_EXPORT_H
+
+#ifdef THIRDPARTY_CAF_CORE_STATIC_DEFINE
+#  define CAF_CORE_EXPORT
+#  define THIRDPARTY_CAF_CORE_NO_EXPORT
+#else
+#  ifndef CAF_CORE_EXPORT
+#    ifdef thirdparty_caf_core_EXPORTS
+        /* We are building this library */
+#      define CAF_CORE_EXPORT 
+#    else
+        /* We are using this library */
+#      define CAF_CORE_EXPORT 
+#    endif
+#  endif
+
+#  ifndef THIRDPARTY_CAF_CORE_NO_EXPORT
+#    define THIRDPARTY_CAF_CORE_NO_EXPORT 
+#  endif
+#endif
+
+#ifndef THIRDPARTY_CAF_CORE_DEPRECATED
+#  define THIRDPARTY_CAF_CORE_DEPRECATED __attribute__ ((__deprecated__))
+#endif
+
+#ifndef THIRDPARTY_CAF_CORE_DEPRECATED_EXPORT
+#  define THIRDPARTY_CAF_CORE_DEPRECATED_EXPORT CAF_CORE_EXPORT THIRDPARTY_CAF_CORE_DEPRECATED
+#endif
+
+#ifndef THIRDPARTY_CAF_CORE_DEPRECATED_NO_EXPORT
+#  define THIRDPARTY_CAF_CORE_DEPRECATED_NO_EXPORT THIRDPARTY_CAF_CORE_NO_EXPORT THIRDPARTY_CAF_CORE_DEPRECATED
+#endif
+
+#if 0 /* DEFINE_NO_DEPRECATED */
+#  ifndef THIRDPARTY_CAF_CORE_NO_DEPRECATED
+#    define THIRDPARTY_CAF_CORE_NO_DEPRECATED
+#  endif
+#endif
+
+#endif /* CAF_CORE_EXPORT_H */

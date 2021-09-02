@@ -34,3 +34,5 @@
     #define BROKER_LSAN_DISABLE()
     #define BROKER_LSAN_IGNORE(x)
 #endif
+
+#define CAF_NO_EXCEPTION
